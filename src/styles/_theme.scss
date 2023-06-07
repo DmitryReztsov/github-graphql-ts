@@ -1,6 +1,6 @@
 :root {
   // main
-  --main-hs: 9.1 97%;
+  --main-hs: 210 100%;
   --main-90: hsl(var(--main-hs) 90%);
   --main-80: hsl(var(--main-hs) 80%);
   --main-70: hsl(var(--main-hs) 70%);
@@ -10,6 +10,7 @@
   --main-30: hsl(var(--main-hs) 30%);
   --main-20: hsl(var(--main-hs) 20%);
   --main-10: hsl(var(--main-hs) 10%);
+  --main: var(--main-50);
   // secondary
   --secondary-hs: 48 100%;
   --secondary-90: hsl(var(--secondary-hs) 90%);
@@ -21,6 +22,7 @@
   --secondary-30: hsl(var(--secondary-hs) 30%);
   --secondary-20: hsl(var(--secondary-hs) 20%);
   --secondary-10: hsl(var(--secondary-hs) 10%);
+  --secondary: var(--secondary-50);
   // gray
   --black: hsl(0 0% 0%);
   --gray-10: hsl(0 0% 10%);
@@ -35,25 +37,29 @@
   --white: hsl(0 0% 100%);
 }
 
-:root[data-theme='light'] {
-  // text
-  --text-main: var(--gray-20);
-  --text-secondary: var(--gray-40);
-  // background
-  --background-main: var(--white);
-  --background-secondary: var(--gray-90);
-  // border-color
-  --input-border-color: var(--gray-80);
+@media (prefers-color-scheme: light) {
+  :root {
+    // text
+    --text-main: var(--gray-20);
+    --text-secondary: var(--gray-40);
+    // background
+    --background-main: var(--white);
+    --background-secondary: var(--gray-90);
+    // border-color
+    --input-border-color: var(--gray-80);
+  }
 }
 
-:root[data-theme='dark'] {
-  // text
-  --text-main: var(--white);
-  --text-secondary: var(--gray-80);
-  // background
-  --background-main: var(--gray-20);
-  --background-secondary: var(--gray-10);
-  // border-color
-  --input-border-color: var(--gray-20);
+@media (prefers-color-scheme: dark) {
+  :root {
+    // text
+    --text-main: var(--white);
+    --text-secondary: var(--gray-80);
+    // background
+    --background-main: var(--gray-20);
+    --background-secondary: var(--gray-10);
+    // border-color
+    --input-border-color: var(--gray-20);
+  }
 }
 

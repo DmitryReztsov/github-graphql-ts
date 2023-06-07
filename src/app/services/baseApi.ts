@@ -7,8 +7,7 @@ const TOKEN = import.meta.env.VITE_GITHUB_TOKEN
 
 export const client = new GraphQLClient(API_URL);
 
-client.setHeader("user-agent", 'node.js');
-client.setHeader("authorization", TOKEN);
+client.setHeader("authorization", `Bearer ${TOKEN}`);
 
 export const api = createApi({
   baseQuery: graphqlRequestBaseQuery({ client }),

@@ -1,0 +1,30 @@
+query getRepo($name: String!, $owner: String!) {
+    repository(name: $name, owner: $owner) {
+        id
+        owner {
+            id
+            login
+            avatarUrl(size: 256)
+            url
+        }
+        name
+        defaultBranchRef {
+            target {
+                ... on Commit {
+                    id
+                    committedDate
+                }
+            }
+        }
+        languages(first: 10) {
+            edges {
+                node {
+                    color
+                    id
+                    name
+                }
+            }
+        }
+        description
+    }
+}

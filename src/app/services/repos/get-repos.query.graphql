@@ -1,0 +1,41 @@
+query getRepos($name: String!) {
+    search(query: $name, type: REPOSITORY, first: 10) {
+        edges {
+            cursor
+            node {
+                ... on Repository {
+                    id
+                    name
+                    url
+                    stargazerCount
+                    owner {
+                        login
+                    }
+                    defaultBranchRef {
+                        name
+                        target {
+                            ... on Commit {
+                                id
+                                history(first: 1) {
+                                    edges {
+                                        node {
+                                            committedDate
+                                            id
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        repositoryCount
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+    }
+}

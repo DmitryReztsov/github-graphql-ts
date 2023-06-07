@@ -14116,10 +14116,14 @@ export type OrganizationMigration = Node & {
 export enum OrganizationMigrationState {
   /** The Octoshift migration has failed. */
   Failed = 'FAILED',
+  /** The Octoshift migration has invalid credentials. */
+  FailedValidation = 'FAILED_VALIDATION',
   /** The Octoshift migration is in progress. */
   InProgress = 'IN_PROGRESS',
   /** The Octoshift migration has not started. */
   NotStarted = 'NOT_STARTED',
+  /** The Octoshift migration needs to have its credentials validated. */
+  PendingValidation = 'PENDING_VALIDATION',
   /** The Octoshift migration is performing post repository migrations. */
   PostRepoMigration = 'POST_REPO_MIGRATION',
   /** The Octoshift migration is performing pre repository migrations. */

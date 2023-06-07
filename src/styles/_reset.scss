@@ -34,8 +34,17 @@ html, body, #root {
   overflow: hidden;
 }
 
+#root {
+  background-color: var(--background-main);
+}
+
 ol, ul {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
 }
 
 blockquote, q {
@@ -57,6 +66,7 @@ input, select, textarea, button {
   font-family: inherit;
   font-size: 100%;
   color: var(--text-main);
+  background-color: var(--background-secondary);
 
   &:focus {
     outline: 0;
@@ -93,8 +103,12 @@ input[type="number"]:focus {
   -moz-appearance: textfield;
 }
 
-svg {
-  path {
-    fill: var(--text-main);
+.icons {
+  color: var(--text-main);
+  transition: 0.2s ease;
+
+  &:hover {
+    color: var(--main);
+    transition: 0.2s ease;
   }
 }
