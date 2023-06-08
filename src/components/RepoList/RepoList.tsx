@@ -9,9 +9,10 @@ interface RepoListProps {
   repos: Repository [],
   isLoading: boolean,
   error?: ErrorResponse | SerializedError,
+  totalCount: number,
 }
 
-const RepoList: FC<RepoListProps> = ({ repos, isLoading, error }) => {
+const RepoList: FC<RepoListProps> = ({ repos, isLoading, error, totalCount }) => {
 
   if (isLoading) {
     return 'Loading...'
@@ -21,10 +22,25 @@ const RepoList: FC<RepoListProps> = ({ repos, isLoading, error }) => {
     return error.name
   }
 
+  if (!totalCount && !isLoading) {
+    return (
+      <div>
+        No data for this search query
+      </div>
+    )
+  }
+
   return (
-    <ul className={styles.repoList}>
-      {repos.map((repo) => <RepoItem key={repo?.id} repo={repo} />)}
-    </ul>
+    <>
+      {!!totalCount && !isLoading && (
+        <div>
+          {`${totalCount} results`}
+        </div>
+      )}
+      <ul className={styles.repoList}>
+        {repos.map((repo) => <RepoItem key={repo?.id} repo={repo} />)}
+      </ul>
+    </>
   );
 };
 

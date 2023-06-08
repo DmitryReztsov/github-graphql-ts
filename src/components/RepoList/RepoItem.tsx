@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { HiExternalLink } from "react-icons/hi";
 import { HiStar } from "react-icons/hi";
+import { HiArrowNarrowRight } from "react-icons/hi";
 import format from 'date-fns/format'
 
 interface RepoProps {
@@ -13,11 +14,12 @@ interface RepoProps {
 const RepoItem: FC<RepoProps> = ({ repo }) => {
   const navigate = useNavigate();
   const { name, url, stargazerCount, owner: { login }, defaultBranchRef } = repo;
-  const commit = defaultBranchRef?.target as Commit;
-  const commits = commit?.history?.edges;
-  const lastCommitDate = commits
-    ? format(new Date(commits[0]?.node?.committedDate ), 'dd-MM-yyyy HH:mm')
-    : undefined;
+
+  const lastCommit = defaultBranchRef ? defaultBranchRef.target as Commit : undefined;
+
+  const lastCommitDate = lastCommit && lastCommit?.committedDate
+    ? format(new Date(lastCommit?.committedDate), 'dd-MM-yyyy HH:mm')
+    : 'no commits';
 
   return (
     <li
@@ -25,9 +27,18 @@ const RepoItem: FC<RepoProps> = ({ repo }) => {
       onClick={() => navigate(`${login}/${name}`)}
     >
       <div className={styles.leftSide}>
-        <h2>{name}</h2>
+        <div className={styles.header}>
+          <h2>
+            {name}
+          </h2>
+          <span className={styles.goText}>
+            <HiArrowNarrowRight size={24} className={styles.icon} />
+            go to repo
+          </span>
+        </div>
         <p>
-          {`Last committed: ${lastCommitDate || 'no data'}`}</p>
+          {`Last committed: ${lastCommitDate}`}
+        </p>
       </div>
       <div className={styles.rightSide}>
         <Link

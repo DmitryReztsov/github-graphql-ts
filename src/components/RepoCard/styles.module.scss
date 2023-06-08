@@ -1,0 +1,64 @@
+
+.repoCard {
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: 0.2s ease;
+  background-color: var(--background-secondary);
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+      h1 {
+        font-size: 1.5rem;
+        overflow: hidden;
+      }
+
+      p {
+        margin-top: 1rem;
+      }
+    }
+
+    .right {
+      height: 2rem;
+      align-self: baseline;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+
+  .author {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+    }
+  }
+
+  .languages {
+    margin-top: 1rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .description {
+    margin-top: 1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
+}
+

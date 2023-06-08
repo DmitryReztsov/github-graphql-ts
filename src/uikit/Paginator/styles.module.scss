@@ -1,0 +1,24 @@
+.paginator {
+  display: flex;
+  gap: 0.25rem;
+
+  .button {
+    width: 6rem;
+    padding: 0.5rem;
+  }
+
+  .pageList {
+    display: flex;
+    gap: 0.25rem;
+
+    .page {
+      width: 2.5rem;
+      padding: 0.5rem;
+
+      &.active {
+        background-color: var(--main);
+        color: var(--white);
+      }
+    }
+  }
+}

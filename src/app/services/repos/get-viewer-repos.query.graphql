@@ -1,8 +1,8 @@
-query getRepos($name: String!, $cursor: String, $limit: Int!) {
-    search(query: $name, after: $cursor, type: REPOSITORY, first: $limit) {
-        edges {
-            node {
-                ... on Repository {
+query getViewerRepos($cursor: String!, $limit: Int!) {
+    viewer {
+        repositories(first: $limit, after: $cursor) {
+            edges {
+                node {
                     id
                     name
                     url
@@ -19,8 +19,9 @@ query getRepos($name: String!, $cursor: String, $limit: Int!) {
                         }
                     }
                 }
+                cursor
             }
+            totalCount
         }
-        repositoryCount
     }
 }

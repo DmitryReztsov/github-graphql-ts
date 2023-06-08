@@ -19,7 +19,7 @@ export type GetRepoQueryVariables = Types.Exact<{
 }>;
 
 
-export type GetRepoQuery = { __typename?: 'Query', repository?: { __typename?: 'Repository', id: string, name: string, description?: string, owner: { __typename?: 'Organization', id: string, login: string, avatarUrl: any, url: any } | { __typename?: 'User', id: string, login: string, avatarUrl: any, url: any }, defaultBranchRef?: { __typename?: 'Ref', target?: { __typename?: 'Blob' } | { __typename?: 'Commit', id: string, committedDate: any } | { __typename?: 'Tag' } | { __typename?: 'Tree' } }, languages?: { __typename?: 'LanguageConnection', edges?: Array<{ __typename?: 'LanguageEdge', node: { __typename?: 'Language', color?: string, id: string, name: string } }> } } };
+export type GetRepoQuery = { __typename?: 'Query', repository?: { __typename?: 'Repository', id: string, name: string, stargazerCount: number, description?: string, owner: { __typename?: 'Organization', id: string, login: string, avatarUrl: any, url: any } | { __typename?: 'User', id: string, login: string, avatarUrl: any, url: any }, defaultBranchRef?: { __typename?: 'Ref', target?: { __typename?: 'Blob' } | { __typename?: 'Commit', id: string, committedDate: any } | { __typename?: 'Tag' } | { __typename?: 'Tree' } }, languages?: { __typename?: 'LanguageConnection', edges?: Array<{ __typename?: 'LanguageEdge', node: { __typename?: 'Language', color?: string, id: string, name: string } }> } } };
 
 
 export const GetRepoDocument = `
@@ -29,10 +29,11 @@ export const GetRepoDocument = `
     owner {
       id
       login
-      avatarUrl(size: 256)
+      avatarUrl(size: 24)
       url
     }
     name
+    stargazerCount
     defaultBranchRef {
       target {
         ... on Commit {

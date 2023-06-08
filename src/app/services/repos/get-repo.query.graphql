@@ -4,10 +4,11 @@ query getRepo($name: String!, $owner: String!) {
         owner {
             id
             login
-            avatarUrl(size: 256)
+            avatarUrl(size: 24)
             url
         }
         name
+        stargazerCount
         defaultBranchRef {
             target {
                 ... on Commit {

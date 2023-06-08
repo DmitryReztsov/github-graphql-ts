@@ -34,6 +34,7 @@
   --gray-70: hsl(0 0% 70%);
   --gray-80: hsl(0 0% 80%);
   --gray-90: hsl(0 0% 90%);
+  --gray-95: hsl(0 0% 95%);
   --white: hsl(0 0% 100%);
 }
 
@@ -44,7 +45,10 @@
     --text-secondary: var(--gray-40);
     // background
     --background-main: var(--white);
-    --background-secondary: var(--gray-90);
+    --background-secondary: var(--gray-95);
+    // link
+    --link: var(--main-50);
+    --link-hover: var(--main-40);
     // border-color
     --input-border-color: var(--gray-80);
   }
