@@ -1,9 +1,11 @@
 import { FC } from 'react';
-import { Repository } from '../../app/services/types.generated.ts';
-import { ErrorResponse } from '@rtk-query/graphql-request-base-query/dist/GraphqlBaseQueryTypes';
 import { SerializedError } from '@reduxjs/toolkit';
-import styles from './styles.module.scss';
+import { ErrorResponse } from '@rtk-query/graphql-request-base-query/dist/GraphqlBaseQueryTypes';
+
+import { Repository } from '../../app/services/types.generated.ts';
 import RepoItem from './RepoItem.tsx';
+
+import styles from './styles.module.scss';
 
 interface RepoListProps {
   repos: Repository [],

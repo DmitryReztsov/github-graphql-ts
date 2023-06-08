@@ -1,11 +1,13 @@
-import styles from './styles.module.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+
 import Container from '../../components/Container/Container.tsx';
 import { useGetRepoQuery } from '../../app/services/repos/get-repo.query.generated.ts';
 import RepoCard from '../../components/RepoCard/RepoCard.tsx';
 import { Repository } from '../../app/services/types.generated.ts';
 import Button from '../../uikit/Button/Button.tsx';
+
+import styles from './styles.module.scss';
 
 const Repo = () => {
   const navigate = useNavigate();

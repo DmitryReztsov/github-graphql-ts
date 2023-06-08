@@ -1,6 +1,9 @@
 import { FC } from 'react';
-import styles from './styles.module.scss';
+
 import Button from '../Button/Button.tsx';
+import useMatchMedia from '../../hooks/useMatchMedia.ts';
+
+import styles from './styles.module.scss';
 
 interface PaginatorProps {
   activePage: number,
@@ -14,8 +17,10 @@ const Paginator: FC<PaginatorProps> = (
     activePage = 1, pageLength = 10, totalCount, clickPage,
   }
   ) => {
+  const isMatch900PX = useMatchMedia('(max-width: 900px)');
+
   const pageCount = Math.ceil(totalCount / pageLength);
-  const maxPageCount = pageCount > 10 ? 10 : pageCount;
+  const maxPageCount = isMatch900PX ? 5 : pageCount > 10 ? 10 : pageCount;
   const pageList = new Array(maxPageCount).fill(1).map((elem, i) => i + elem);
 
   return (
@@ -26,7 +31,7 @@ const Paginator: FC<PaginatorProps> = (
         disabled={activePage === 1}
         onClick={() => clickPage(activePage - 1)}
       >
-        Previous
+        Prev
       </Button>
       <div className={styles.pageList}>
         {pageList.map((page) => {

@@ -1,11 +1,13 @@
 import { FC } from 'react';
-import { Commit, Repository } from '../../app/services/types.generated.ts';
-import styles from './styles.module.scss';
+import format from 'date-fns/format'
 import { Link, useNavigate } from 'react-router-dom';
 import { HiExternalLink } from "react-icons/hi";
 import { HiStar } from "react-icons/hi";
 import { HiArrowNarrowRight } from "react-icons/hi";
-import format from 'date-fns/format'
+
+import { Commit, Repository } from '../../app/services/types.generated.ts';
+
+import styles from './styles.module.scss';
 
 interface RepoProps {
   repo: Repository,

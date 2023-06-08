@@ -1,16 +1,17 @@
-import SearchInput from '../../uikit/SearchInput/SearchInput.tsx';
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { useSearchParams } from 'react-router-dom';
 
-import styles from './styles.module.scss';
+import SearchInput from '../../uikit/SearchInput/SearchInput.tsx';
 import RepoList from '../../components/RepoList/RepoList.tsx';
 import { useGetReposQuery } from '../../app/services/repos/get-repos.query.generated.ts';
 import { Repository } from '../../app/services/types.generated.ts';
-import { Helmet } from 'react-helmet';
 import Container from '../../components/Container/Container.tsx';
 import Paginator from '../../uikit/Paginator/Paginator.tsx';
-import React, { useEffect, useState } from 'react';
 import toBtoa from '../../utils/toBtoa.ts';
-import { useSearchParams } from 'react-router-dom';
 import { useGetViewerReposQuery } from '../../app/services/repos/get-viewer-repos.query.generated.ts';
+
+import styles from './styles.module.scss';
 
 const Repos = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -63,12 +64,20 @@ const Repos = () => {
   }, []);
 
   useEffect(() => {
-    searchParams.set('searchText', searchText);
+    if (!searchText) {
+      searchParams.delete('searchText');
+    } else {
+      searchParams.set('searchText', searchText);
+    }
     setSearchParams(searchParams);
   }, [searchText]);
 
   useEffect(() => {
-    searchParams.set('activePage', activePage.toString());
+    if (!activePage) {
+      searchParams.delete('activePage');
+    } else {
+      searchParams.set('activePage', activePage.toString());
+    }
     setSearchParams(searchParams);
   }, [activePage]);
 
@@ -98,8 +107,7 @@ const Repos = () => {
               pageLength={pageLength}
               clickPage={clickPage}
             />
-            )
-          }
+          )}
         </div>
       </Container>
     </div>

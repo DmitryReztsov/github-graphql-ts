@@ -1,11 +1,13 @@
 import ReactDOM from 'react-dom/client'
-import './styles/main.scss'
 import { Provider } from 'react-redux';
-import { store } from './store/store.ts';
 import router from './router.tsx';
 import { RouterProvider } from 'react-router-dom';
 import { IconContext } from "react-icons";
 import { Helmet } from 'react-helmet';
+
+import { store } from './store/store.ts';
+
+import './styles/main.scss'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>

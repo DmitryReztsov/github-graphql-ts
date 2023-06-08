@@ -15,7 +15,8 @@
     .left {
       h1 {
         font-size: 1.5rem;
-        overflow: hidden;
+        overflow: auto;
+        word-break: break-word;
       }
 
       p {

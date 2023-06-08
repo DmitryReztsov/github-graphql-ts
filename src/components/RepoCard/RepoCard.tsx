@@ -1,10 +1,12 @@
-import styles from './styles.module.scss';
-import { Commit, Repository } from '../../app/services/types.generated.ts';
 import { FC } from 'react';
 import format from 'date-fns/format';
 import { HiStar } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+
+import { Commit, Repository } from '../../app/services/types.generated.ts';
 import Chip from '../../uikit/Chip/Chip.tsx';
+
+import styles from './styles.module.scss';
 
 interface RepoCardProps {
   repo: Repository,

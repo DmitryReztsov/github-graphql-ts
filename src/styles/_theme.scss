@@ -62,8 +62,11 @@
     // background
     --background-main: var(--gray-20);
     --background-secondary: var(--gray-10);
+    // link
+    --link: var(--main-50);
+    --link-hover: var(--main-40);
     // border-color
-    --input-border-color: var(--gray-20);
+    --input-border-color: var(--gray-30);
   }
 }
 

@@ -1,5 +1,6 @@
-import styles from './styles.module.scss';
 import { FC, PropsWithChildren } from 'react';
+
+import styles from './styles.module.scss';
 
 interface ChipProps {
   backgroundColor?: string,

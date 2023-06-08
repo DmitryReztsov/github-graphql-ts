@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import * as React from 'react';
 
 import styles from './styles.module.scss';
-import * as React from 'react';
 
 type ButtonVariants = 'outlined';
 
